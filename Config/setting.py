@@ -28,11 +28,14 @@ elif DB_TYPE == 'MONGODB':
     DB_HOST = getenv('mongodb_host', '127.0.0.1')
     DB_PORT = getenv('mongodb_host', '27017')
 else:
-    raise ConfigError('Unknown database type, your environment variable `db_type` should be one of SSDB/MONGODB.')
+    raise ConfigError(
+        'Unknown database type, your environment variable `db_type` should be one of SSDB/MONGODB.')
 
 DATABASES = {
     "default": {
-        "TYPE": DB_TYPE,  # TYPE SSDB/MONGODB if use redis, only modify the host port, the type should be SSDB
+        # TYPE SSDB/MONGODB if use redis, only modify the host port, the type
+        # should be SSDB
+        "TYPE": DB_TYPE,
         "HOST": DB_HOST,
         "PORT": DB_PORT,
         "NAME": "proxy",
@@ -59,7 +62,8 @@ PROXY_GETTER = [
     # foreign website, outside the wall
     # "freeProxyWallFirst",
     # "freeProxyWallSecond",
-    # "freeProxyWallThird"
+    # "freeProxyWallThird",
+    "freeProxyNima",
 ]
 
 # # API config http://127.0.0.1:5010
