@@ -22,7 +22,7 @@ class ConfigError(BaseException):
 DB_TYPE = getenv('db_type', 'SSDB')
 
 if DB_TYPE == 'SSDB':
-    DB_HOST = getenv('ssdb_host', '127.0.0.1')
+    DB_HOST = getenv('ssdb_host', '107.182.19.55')
     DB_PORT = getenv('ssdb_port', '6379')
 elif DB_TYPE == 'MONGODB':
     DB_HOST = getenv('mongodb_host', '127.0.0.1')
@@ -48,21 +48,21 @@ DATABASES = {
 
 PROXY_GETTER = [
     "freeProxyFirst",
-    "freeProxySecond",
-    # "freeProxyThird",  # 网站已不能访问
+    # "freeProxySecond",
+    "freeProxyThird",  # 网站已不能访问
     "freeProxyFourth",
     "freeProxyFifth",
-    # "freeProxySixth"   # 不再提供免费代理
+    "freeProxySixth"   # 不再提供免费代理
     "freeProxySeventh",
-    # "freeProxyEight",
-    # "freeProxyNinth",
+    "freeProxyEight",
+    "freeProxyNinth",
     "freeProxyTen",
     "freeProxyEleven",
     "freeProxyTwelve",
     # foreign website, outside the wall
-    # "freeProxyWallFirst",
-    # "freeProxyWallSecond",
-    # "freeProxyWallThird",
+    "freeProxyWallFirst",
+    "freeProxyWallSecond",
+    "freeProxyWallThird",
     "freeProxyNima",
 ]
 
