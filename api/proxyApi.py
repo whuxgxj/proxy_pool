@@ -64,6 +64,10 @@ def get():
         ip_list = [ip for ip in ip_list if ip["region"] == request.args['region']]
     if 'min_check' in request.args:
         ip_list = [ip for ip in ip_list if ip["check_count"] >= int(request.args['min_check'])]
+    if 'source' in request.args:
+        ip_list = [ip for ip in ip_list if ip["source"] == request.args['source']]
+    if 'type' in request.args:
+        ip_list = [ip for ip in ip_list if ip["type"] == request.args['type']]
     proxy = random.choice(ip_list)
     return proxy if proxy else {"code": 0, "src": "no proxy"}
 
@@ -86,6 +90,10 @@ def getAll():
     ip_list = [_.to_dict for _ in proxies]
     if 'region' in request.args:
         ip_list = [ip for ip in ip_list if ip["region"] == request.args['region']]
+    if 'source' in request.args:
+        ip_list = [ip for ip in ip_list if ip["source"] == request.args['source']]
+    if 'type' in request.args:
+        ip_list = [ip for ip in ip_list if ip["type"] == request.args['type']]
     if 'min_check' in request.args:
         ip_list = [ip for ip in ip_list if ip["check_count"] >= int(request.args['min_check'])]
     return jsonify(ip_list)
